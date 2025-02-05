@@ -85,8 +85,8 @@ class OracleConnector(SQLConnector):
         if self._jsonschema_type_check(jsonschema_type, ("string",)):
             datelike_type = get_datelike_property_type(jsonschema_type)
             # Universal detection of CLOB fields
-+           if jsonschema_type.get("maxLength", 0) > 4000 or jsonschema_type.get("format", "").lower() == "clob":
-+               return cast(sqlalchemy.types.TypeEngine, sqlalchemy.types.CLOB())
+            if jsonschema_type.get("maxLength", 0) > 4000 or jsonschema_type.get("format", "").lower() == "clob":
+                return cast(sqlalchemy.types.TypeEngine, sqlalchemy.types.CLOB())
             if datelike_type == "clob":
                 return cast(sqlalchemy.types.TypeEngine, sqlalchemy.types.CLOB())
 
