@@ -37,7 +37,7 @@ class OracleConnector(SQLConnector):
 
         connection_url = sqlalchemy.engine.url.URL.create(
             # drivername="cx_oracle",
-            drivername=config["driver"],
+            drivername=config["driver_name"],
             username=config["user"],
             password=config["password"],
             host=config["host"],
